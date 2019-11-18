@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+{{ TUNDRA_SEPARATION_STR }} {{ TUNDRA_CATEGORIES }}
+{% endblock %}
+
+{% block content %}
+<article>
+    <h1>{{ TUNDRA_CATEGORIES }}</h1>
+    <ul>
+
+        {% for category, articles in categories|sort %}
+        <li>
+
+            {% if category.ancestors %}
+            {% for ancestor_category in category.ancestors[:-1] %}
+
+            <span>{{ ancestor_category.shortname | lower }}</span>
+            &gt;
+
+            {% endfor %}
+            {% endif %}
+
+            <a href="{{ SITEURL }}/{{ category.url }}">{{ category.shortname | lower}}</a>
+
+            <span>[{{ articles|count }} {{ TUNDRA_ARTICLES }}]</span>
+
+            {% if category.page %}
+            <p>{{ category.page.content }}</p>
+            {% endif %}
+
+        </li>
+        {% endfor %}
+
+    </ul>
+</article>
+{% endblock %}

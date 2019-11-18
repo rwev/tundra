@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+{{ TUNDRA_SEPARATION_STR }}
+{{ TUNDRA_TAGS }}
+
+{% endblock %}
+
+{% block content %}
+<article>
+        <h1>{{ TUNDRA_TAGS }}</h1>
+        <ul>
+                {%- for tag, articles in tags|sort %}
+                <li>
+                        <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag | lower}}</a>
+                        <span>[{{ articles|count }} {{ TUNDRA_ARTICLES }}]</span>
+
+                        {% if tag.page %}
+                        <p>{{ tag.page.content }}</p>
+                        {% endif %}
+
+                </li>
+                {% endfor %}
+        </ul>
+</article>
+{% endblock %}

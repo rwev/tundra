@@ -1,0 +1,275 @@
+@nord0: #2e3440;
+@nord1: #3b4252;
+@nord2: #434c5e;
+@nord3: #4c566a;
+@nord4: #d8dee9;
+@nord5: #e5e9f0;
+@nord6: #eceff4;
+@nord7: #8fbcbb;
+@nord8: #88c0d0;
+@nord9: #81a1c1;
+@nord10: #5e81ac;
+@nord11: #bf616a;
+@nord12: #d08770;
+@nord13: #ebcb8b;
+@nord14: #a3be8c;
+@nord15: #b48ead;
+
+@paper: #ece0d1;
+@ink: #634832;
+
+// match photos plugin config in pelicanconf.py
+@thumb-width: 300px;
+@thumb-height: 225px;
+
+@font-face {
+        font-family: Bahnschrift;
+        src: url("./font/bahnschrift.ttf");
+}
+
+@font-face {
+        font-family: Enriqueta;
+        src: url("./font/enriqueta.ttf");
+}
+
+@font-face {
+        font-family: FiraSans;
+        src: url("./font/fira-sans.ttf");
+}
+
+@font-face {
+        font-family: FiraCode;
+        src: url("./font/fira-code.ttf");
+}
+
+html {
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        text-rendering: optimizeLegibility;
+}
+
+body {
+        font-family: FiraSans;
+        font-size: 1rem;
+
+        padding: 2rem;
+        margin: auto;
+
+        background: @nord6;
+        color: @nord0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+        font-weight: normal;
+        text-align: left;
+        font-family: Bahnschrift;
+        span {
+                color: inherit;
+        }
+        a {
+                color: inherit;
+                text-decoration: none;
+                &:hover,
+                &:active {
+                        text-decoration: underline;
+                }
+        }
+}
+
+h1 {
+        color: @nord1;
+        font-size: 1.75rem;
+}
+
+h2 {
+        color: @nord2;
+        font-size: 1.50rem;
+}
+
+h3 {
+        color: @nord3;
+        font-size: 1.25rem;
+}
+
+a {
+        color: @nord11;
+        &:hover,
+        &:active {
+                color: @nord12;
+        }
+}
+hr {
+        border: none;
+        height: 1px;
+        background-color: @nord7;
+}
+
+img {
+        max-width: 100%;
+        &#logo {
+                width: 7.5rem;
+                -webkit-transition: -webkit-transform 0.8s ease-in-out;
+                transition: transform 0.8s ease-in-out;
+                &:hover {
+                        -webkit-transform: rotate(240deg);
+                        transform: rotate(240deg);
+                }
+        }
+}
+
+aside {
+        div.user-meta {
+                ul {
+                        list-style-type: none;
+                        li {
+                                display: inline;
+                        }
+                }
+        }
+}
+
+main {
+
+        article {
+                div.article_listing {
+                        margin: 50px 0 50px 0;
+                        h1 {
+                                margin-bottom: 0;
+                        }
+                }
+
+                div.neighbors,
+                div.similar {
+                        margin: 20px 0 0 0;
+                }
+                div.article_list_meta,
+                div.article_full_meta,
+                div.neighbors,
+                div.similar {
+                        font-size: 0.75rem;
+                        color: @nord10;
+
+                        display: inline-block;
+                        width: 100%;
+
+                        div.dates,
+                        div.neighbors_next,
+                        div.non_date,
+                        div.neighbors_prev {
+                                float: left;
+                        }
+                }
+                div.quote {
+                        background-color: @paper;
+                        color: @ink;
+                        padding: 7.5px 15px 7.5px 15px;
+                        margin: 15px 0 15px 0;
+
+                        font-family: Enriqueta;
+
+                        p.content {
+                        }
+                        p.annotation {
+                                font-weight: bold;
+                        }
+                }
+
+                code {
+                        font-family: FiraCode;
+                }
+                code.inline {
+                        display: inline;
+                        padding: 2.5px 5px 2.5px 5px;
+                        font-size: 13px;
+                }
+        }
+
+        footer {
+                div.paginations {
+                        display: inline-block;
+                        width: 100%;
+                        a.pagination_older {
+                                float: left;
+                        }
+                        a.pagination_newer {
+                                float: right;
+                        }
+                }
+        }
+
+        div.credits {
+                color: @nord10;
+                font-size: 0.65rem;
+        }
+}
+
+table {
+        width: 100%;
+
+        border-collapse: collapse;
+
+        th,
+        td {
+                border-style: solid;
+                border-width: thin;
+                border-color: @nord4;
+        }
+        th {
+                color: @nord3;
+        }
+}
+
+@media screen and (min-width: 768px) {
+        main {
+                position: absolute;
+
+                top: 0;
+                right: 32%;
+
+                max-width: 750px;
+                margin: 0 0 0 1rem;
+
+                header {
+                        margin: 40px 0 40px 0;
+                }
+                footer {
+                        margin: 40px 0 0 0;
+                }
+
+                div.dates,
+                div.neighbors_next {
+                        float: right !important; // TODO fix
+                }
+        }
+
+        aside {
+                position: absolute;
+
+                top: 0;
+                right: 0;
+
+                width: 25%;
+                height: 100%;
+
+                margin: 40px;
+
+                div.user-meta ul li {
+                        display: block;
+                }
+        }
+
+        div.gallery {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                grid-gap: 10px;
+
+                figcaption {
+                        width: @thumb-width;
+                }
+        }
+}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+{{ TUNDRA_SEPARATION_STR }} {{ TUNDRA_ARCHIVES }}
+{% endblock %}
+
+{% block content %}
+<article>
+    <h1>{{ TUNDRA_ARCHIVES }} </h1>
+
+    {% for article in dates %}
+    <p>
+        {{ article.locale_date }} {{ TUNDRA_SEPARATION_STR }}
+
+        <a href="{{ SITEURL }}/{{ article.url }}">
+            {{ article.title }}
+        </a>
+
+    </p>
+    {% endfor %}
+</article>
+{% endblock %}
