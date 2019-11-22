@@ -31,3 +31,11 @@ Overwrite any of the variables in your `pelicanconf.py` after this import, wheth
 - [photos](https://github.com/getpelican/pelican-plugins/tree/master/photos)
 - [summary](https://github.com/getpelican/pelican-plugins/tree/master/summary)
 - [clean_summary](https://github.com/getpelican/pelican-plugins/tree/master/summary)
+
+## TODO
+- [ ] integrate plugins
+    - [ ] [sitemap](https://github.com/getpelican/pelican-plugins/tree/master/sitemap) 
+    - [ ] [deadlinks](https://github.com/silentlamb/pelican-deadlinks/tree/8b49b594591ded55ba20b74c54c12a566fe8e9cc) 
+    - [ ] [ave_seo](https://github.com/MaevaBrunelles/ave_seo)
+- [ ] remove `px` usage from styles
+- [ ] remove brown `quote` colors; use nord
