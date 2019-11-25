@@ -4,9 +4,12 @@
 <head>
 
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="{{ AUTHOR }}">
-    <meta name="description" content="Posts and writings by {{ AUTHOR }}">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta name="author"
+          content="{{ AUTHOR }}">
+    <meta name="description"
+          content="Posts and writings by {{ AUTHOR }}">
 
     <!-- client-side less
             <link rel="stylesheet/less" type="text/css" href="{{ SITEURL }}/theme/css/style.less">
@@ -14,9 +17,13 @@
             -->
 
 
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css">
+    <link rel="stylesheet"
+          type="text/css"
+          href="{{ SITEURL }}/theme/css/style.css">
 
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/assets/deps/nord-highlightjs.css">
+    <link rel="stylesheet"
+          type="text/css"
+          href="{{ SITEURL }}/assets/deps/nord-highlightjs.css">
     <script src="{{ SITEURL }}/assets/deps/highlight.pack.js"></script>
 
     <script src="{{ SITEURL }}/assets/files/load-script.js"></script>
@@ -24,13 +31,17 @@
     <script src="{{ SITEURL }}/assets/files/load-file-text-element.js"></script>
 
     {% if FEED_ALL_ATOM %}
-    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
-          title="{{ SITENAME }} Atom"/>
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}"
+              type="application/atom+xml"
+              rel="alternate"
+              title="{{ SITENAME }} Atom"/>
     {% endif %}
 
     {% if FEED_ALL_RSS %}
-    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate"
-          title="{{ SITENAME }} RSS"/>
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}"
+              type="application/rss+xml"
+              rel="alternate"
+              title="{{ SITENAME }} RSS"/>
     {% endif %}
 
     {% block head %}
@@ -53,16 +64,16 @@
 
         {% if FEED_ALL_ATOM %}
 
-        {{ TUNDRA_SEPARATION_STR }}
-        <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">
-            {{ TUNDRA_ATOM }}
-        </a>
+            {{ TUNDRA_SEPARATION_STR }}
+            <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">
+                {{ TUNDRA_ATOM }}
+            </a>
 
         {% endif %}
 
         {% if FEED_ALL_RSS %}
 
-        {{ TUNDRA_SEPARATION_STR }}
+            {{ TUNDRA_SEPARATION_STR }}
             <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}">
                 {{ TUNDRA_RSS }}
             </a>
@@ -83,96 +94,96 @@
         <hr>
         <p>&copy; {{ OWNER }}. built using <a href="https://python.org">python</a> and <a href="https://getpelican.com"
                                                                                           target="_blank">pelican</a>.
-            theme inspired by <a href="https://nordtheme.com" target="_blank">nord</a>.</p>
+           theme inspired by <a href="https://nordtheme.com"
+                                target="_blank">nord</a>.</p>
     </div>
 </main>
 <aside>
-    <div class="user-meta">
+    <a href="{{ SITEURL }}">
+        <img src="{{ SITE_URL }}/{{ USER_LOGO_URL }}"
+             alt="logo">
+    </a>
 
+    <h2>
         <a href="{{ SITEURL }}">
-            <img src="{{ SITE_URL }}/{{ USER_LOGO_URL }}" alt="logo" id="logo">
+            {{ SITENAME }}
         </a>
+    </h2>
 
-        <h2>
-            <a href="{{ SITEURL }}">
-                {{ SITENAME }}
-            </a>
-        </h2>
+    <p>{{ TAGLINE }}</p>
 
-        <p>{{ TAGLINE }}</p>
-
-        {% if DISPLAY_PAGES_ON_MENU %}
+    {% if DISPLAY_PAGES_ON_MENU %}
         <h3>{{ TUNDRA_PAGES }}</h3>
         <ul>
             {% for p in pages %}
-            <li>
-                <a href="{{ SITEURL }}/{{ p.url }}">
-                    {{ p.title | lower }}</a>
-            </li>
+                <li>
+                    <a href="{{ SITEURL }}/{{ p.url }}">
+                        {{ p.title | lower }}</a>
+                </li>
             {% endfor %}
         </ul>
-        {% endif %}
+    {% endif %}
 
-        <h3> {{ TUNDRA_BLOG }} </h3>
-        <ul>
-            <li>
-                <a href="{{ SITEURL }}/categories">
-                    {{ TUNDRA_CATEGORIES }} [{{ categories | count }}]
-                </a>
-            </li>
-            <li>
-                <a href="{{ SITEURL }}/authors">
-                    {{ TUNDRA_AUTHORS }} [{{ authors | count }}]
-                </a>
-            </li>
-            <li>
-                <a href="{{ SITEURL }}/tags">
-                    {{ TUNDRA_TAGS }} [{{ tags | count }}]
-                </a>
-            </li>
-        </ul>
+    <h3> {{ TUNDRA_BLOG }} </h3>
+    <ul>
+        <li>
+            <a href="{{ SITEURL }}/categories">
+                {{ TUNDRA_CATEGORIES }} [{{ categories | count }}]
+            </a>
+        </li>
+        <li>
+            <a href="{{ SITEURL }}/authors">
+                {{ TUNDRA_AUTHORS }} [{{ authors | count }}]
+            </a>
+        </li>
+        <li>
+            <a href="{{ SITEURL }}/tags">
+                {{ TUNDRA_TAGS }} [{{ tags | count }}]
+            </a>
+        </li>
+    </ul>
 
-        {% if DISPLAY_LINKS_ON_MENU %}
+    {% if DISPLAY_LINKS_ON_MENU %}
         <h3>{{ TUNDRA_LINKS }}</h3>
         <ul>
             {% for name, link in LINK_ITEMS %}
-            <li>
-                <a href="{{ link }}" target="_blank">
-                    {{ name | lower }}
-                </a>
-            </li>
+                <li>
+                    <a href="{{ link }}"
+                       target="_blank">
+                        {{ name | lower }}
+                    </a>
+                </li>
             {% endfor %}
         </ul>
-        {% endif %}
+    {% endif %}
 
-        {% if DISPLAY_CATEGORIES_ON_MENU %}
+    {% if DISPLAY_CATEGORIES_ON_MENU %}
         <h3>{{ TUNDRA_CATEGORIES }}</h3>
         <ul>
             {% for category_name, articles_in_category in categories %}
-            <li>
-                <a href="{{ SITEURL }}/{{ category_name.url }}">
-                    {{ category_name | lower }} [{{ articles_in_category | count }}]
-                </a>
-            </li>
+                <li>
+                    <a href="{{ SITEURL }}/{{ category_name.url }}">
+                        {{ category_name | lower }} [{{ articles_in_category | count }}]
+                    </a>
+                </li>
             {% endfor %}
         </ul>
-        {% endif %}
+    {% endif %}
 
-        <!-- TODO move along bottom edge of sidebar - add icons -->
-        {% if DISPLAY_SOCIAL_ON_MENU %}
+    <!-- TODO move along bottom edge of sidebar - add icons -->
+    {% if DISPLAY_SOCIAL_ON_MENU %}
         <h3>{{ TUNDRA_SOCIAL }}</h3>
         <ul>
             {% for name, link in SOCIAL %}
-            <li>
-                <a href="{{ link }}" target="_blank">
-                    {{ name | lower }}
-                </a>
-            </li>
+                <li>
+                    <a href="{{ link }}"
+                       target="_blank">
+                        {{ name | lower }}
+                    </a>
+                </li>
             {% endfor %}
         </ul>
-        {% endif %}
-
-    </div>
+    {% endif %}
 </aside>
 
 

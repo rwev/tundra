@@ -25,8 +25,8 @@ Overwrite any of the variables in your `pelicanconf.py` after this import, wheth
 `tundra`'s templates and base configuration support the following plugins out of the box:
 
 - [autopages](https://github.com/getpelican/pelican-plugins/tree/master/autopages)
-- [similar_posts](https://github.com/davidlesieur/similar_posts/tree/d6014555961f931d0a1b8c4e90e3fdb3439e6300)
-- [neighbors](https://github.com/getpelican/pelican-plugins/tree/master/neighbors)
+- [meta_posts](https://github.com/davidlesieur/meta_posts/tree/d6014555961f931d0a1b8c4e90e3fdb3439e6300)
+- [meta](https://github.com/getpelican/pelican-plugins/tree/master/meta)
 - [more_categories](https://github.com/getpelican/pelican-plugins/tree/master/more_categories)
 - [photos](https://github.com/getpelican/pelican-plugins/tree/master/photos)
 - [summary](https://github.com/getpelican/pelican-plugins/tree/master/summary)
@@ -37,5 +37,3 @@ Overwrite any of the variables in your `pelicanconf.py` after this import, wheth
     - [ ] [sitemap](https://github.com/getpelican/pelican-plugins/tree/master/sitemap) 
     - [ ] [deadlinks](https://github.com/silentlamb/pelican-deadlinks/tree/8b49b594591ded55ba20b74c54c12a566fe8e9cc) 
     - [ ] [ave_seo](https://github.com/MaevaBrunelles/ave_seo)
-- [ ] remove `px` usage from styles
-- [ ] remove brown `quote` colors; use nord

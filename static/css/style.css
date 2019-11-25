@@ -91,75 +91,50 @@ hr {
 img {
   max-width: 100%;
 }
-img#logo {
+aside img {
   width: 7.5rem;
   -webkit-transition: -webkit-transform 0.8s ease-in-out;
   transition: transform 0.8s ease-in-out;
 }
-img#logo:hover {
+aside img:hover {
   -webkit-transform: rotate(240deg);
   transform: rotate(240deg);
 }
-aside div.user-meta ul {
+aside ul {
   list-style-type: none;
 }
-aside div.user-meta ul li {
-  display: inline;
-}
 main article div.article_listing {
-  margin: 50px 0 50px 0;
+  margin: 3rem 0 3rem 0;
 }
 main article div.article_listing h1 {
   margin-bottom: 0;
 }
-main article div.neighbors,
-main article div.similar {
-  margin: 20px 0 0 0;
-}
-main article div.article_list_meta,
-main article div.article_full_meta,
-main article div.neighbors,
-main article div.similar {
+main article div.meta {
   font-size: 0.75rem;
   color: #5e81ac;
   display: inline-block;
   width: 100%;
 }
-main article div.article_list_meta div.dates,
-main article div.article_full_meta div.dates,
-main article div.neighbors div.dates,
-main article div.similar div.dates,
-main article div.article_list_meta div.neighbors_next,
-main article div.article_full_meta div.neighbors_next,
-main article div.neighbors div.neighbors_next,
-main article div.similar div.neighbors_next,
-main article div.article_list_meta div.non_date,
-main article div.article_full_meta div.non_date,
-main article div.neighbors div.non_date,
-main article div.similar div.non_date,
-main article div.article_list_meta div.neighbors_prev,
-main article div.article_full_meta div.neighbors_prev,
-main article div.neighbors div.neighbors_prev,
-main article div.similar div.neighbors_prev {
+main article div.meta div.spread {
   float: left;
 }
-main article div.quote {
-  background-color: #ece0d1;
-  color: #634832;
-  padding: 7.5px 15px 7.5px 15px;
-  margin: 15px 0 15px 0;
-  font-family: Enriqueta;
+main article blockquote {
+  background-color: #d8dee9;
+  color: #434c5e;
+  padding: 1rem;
+  margin: 1rem 0 1rem 0;
+  font-family: Enriqueta, serif;
 }
-main article div.quote p.annotation {
+main article blockquote p.annotation {
   font-weight: bold;
 }
 main article code {
-  font-family: FiraCode;
+  font-family: FiraCode, monospace;
 }
 main article code.inline {
   display: inline;
-  padding: 2.5px 5px 2.5px 5px;
-  font-size: 13px;
+  padding: 0.25rem;
+  font-size: 0.85rem;
 }
 main footer div.paginations {
   display: inline-block;
@@ -197,14 +172,13 @@ table th {
     margin: 0 0 0 1rem;
   }
   main header {
-    margin: 40px 0 40px 0;
+    margin: 2rem 0 2rem 0;
   }
   main footer {
-    margin: 40px 0 0 0;
+    margin: 2rem 0 0 0;
   }
-  main div.dates,
-  main div.neighbors_next {
-    float: right !important;
+  main article div.meta div.spread.right {
+    float: right;
   }
   aside {
     position: absolute;
@@ -212,17 +186,11 @@ table th {
     right: 0;
     width: 25%;
     height: 100%;
-    margin: 40px;
-  }
-  aside div.user-meta ul li {
-    display: block;
+    margin: 2rem;
   }
   div.gallery {
     display: grid;
     grid-template-columns: 1fr auto;
-    grid-gap: 10px;
-  }
-  div.gallery figcaption {
-    width: 300px;
+    grid-gap: 0.7rem;
   }
 }

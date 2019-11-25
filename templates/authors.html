@@ -1,26 +1,26 @@
 {% extends "base.html" %}
 
 {% block title %}
-{{ TUNDRA_AUTHOR_S }}
+    {{ TUNDRA_AUTHOR_S }}
 {% endblock %}
 
 {% block content %}
-<article>
-    <h1>{{ TUNDRA_AUTHOR_S }}</h1>
-    <ul>
-        {% for author, articles in authors | sort %}
-        <li>
-            <a href="{{ SITEURL }}/{{ author.url }}">
-                {{ author }}
-            </a>
+    <article>
+        <h1>{{ TUNDRA_AUTHOR_S }}</h1>
+        <ul>
+            {% for author, articles in authors | sort %}
+                <li>
+                    <a href="{{ SITEURL }}/{{ author.url }}">
+                        {{ author }}
+                    </a>
 
-            <span>[{{ articles|count }} {{ TUNDRA_ARTICLES }}]</span>
+                    <span>[{{ articles|count }} {{ TUNDRA_ARTICLES }}]</span>
 
-            {% if author.page %}
-            <p>{{ author.page.content }}</p>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-</article>
+                    {% if author.page %}
+                        <p>{{ author.page.content }}</p>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </article>
 {% endblock %}

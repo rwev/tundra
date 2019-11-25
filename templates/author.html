@@ -1,33 +1,37 @@
 {% extends "index.html" %}
 
 {% block title %}
-{{ TUNDRA_AUTHOR_S }}: {{ author }}
+    {{ TUNDRA_AUTHOR_S }}: {{ author }}
 {% endblock %}
 
 {% block head %}
 
-{% if AUTHOR_FEED_ATOM %}
-<link href="{{ FEED_DOMAIN }}/{{ AUTHOR_FEED_ATOM | replace("{slug}", author.slug) }}" type="application/atom+xml"
-      rel="alternate" title="{{ SITENAME }} {{ author }} Author Atom"/>
-{% endif %}
+    {% if AUTHOR_FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ AUTHOR_FEED_ATOM | replace("{slug}", author.slug) }}"
+              type="application/atom+xml"
+              rel="alternate"
+              title="{{ SITENAME }} {{ author }} Author Atom"/>
+    {% endif %}
 
-{% if AUTHOR_FEED_RSS %}
-<link href="{{ FEED_DOMAIN }}/{{ AUTHOR_FEED_RSS | replace("{slug}", author.slug) }}" type="application/rss+xml"
-      rel="alternate" title="{{ SITENAME }} {{ author }} Author RSS"/>
-{% endif %}
+    {% if AUTHOR_FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ AUTHOR_FEED_RSS | replace("{slug}", author.slug) }}"
+              type="application/rss+xml"
+              rel="alternate"
+              title="{{ SITENAME }} {{ author }} Author RSS"/>
+    {% endif %}
 
 {% endblock %}
 
 {% block header %}
 
-&gt; {{ TUNDRA_AUTHOR }}: {{ author }}
+    &gt; {{ TUNDRA_AUTHOR }}: {{ author }}
 
-<h1> {{ TUNDRA_AUTHOR }}: {{ author }} </h1>
+    <h1> {{ TUNDRA_AUTHOR }}: {{ author }} </h1>
 
-{% if author.page %}
+    {% if author.page %}
 
-{{ author.page.content }}
+        {{ author.page.content }}
 
-{% endif %}
+    {% endif %}
 
 {% endblock %}

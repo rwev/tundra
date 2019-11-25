@@ -1,131 +1,146 @@
 {% extends "base.html" %}
+
 {% block head %}
-<meta name="keywords" content="{{ article.tags|join(', ')  }}">
+    <meta name="keywords"
+          content="{{ article.tags|join(', ') }}">
 {% endblock %}
 
 {% block title %}
-{{ article.title }}
+    {{ article.title }}
 {% endblock %}
 
 {% block content %}
-<article>
-    <div class="article_title">
+    <article>
         <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
-    </div>
 
-    <div class="article_full_meta">
-        <div class="non_date">
-            <p>{{ TUNDRA_AUTHOR_S }}:
-                {% for author in article.authors %}
-                <a href="{{ SITEURL }}/{{ author.url }}">
-                    {{ author }}
-                </a>
-                {% if not loop.last %}
-                ,
-                {% endif %}
-                {% endfor %}
-            </p>
+        <div class="meta">
+            <div class="spread">
+                <p>
+                    {{ TUNDRA_AUTHOR_S }}:
+                    {% for author in article.authors %}
+                        <a href="{{ SITEURL }}/{{ author.url }}">
+                            {{ author }}
+                        </a>
+                        {% if not loop.last %}
+                                         ,
+                        {% endif %}
+                    {% endfor %}
+                </p>
 
-            <p> {{ TUNDRA_CATEGORY }}:
-                {% for category in article.category.ancestors or [article.category] %}
-                <a href="{{ SITEURL }}/{{ category.url }}">
-                    {{ category.shortname or category | lower }}
-                </a>
-                {{ ' &gt;' if not loop.last }}
-                {% endfor %}
-            </p>
+                <p>
+                    {{ TUNDRA_CATEGORY }}:
+                    {% for category in article.category.ancestors or [article.category] %}
+                        <a href="{{ SITEURL }}/{{ category.url }}">
+                            {{ category.shortname or category | lower }}
+                        </a>
+                        {{ ' &gt;' if not loop.last }}
+                    {% endfor %}
+                </p>
 
-            <p>
-                {% if article.tags %}
-                {{ TUNDRA_TAGS }}:
+                <p>
+                    {% if article.tags %}
+                        {{ TUNDRA_TAGS }}:
 
-                {% for tag in article.tags %}
+                        {% for tag in article.tags %}
 
-                <a href="{{ SITEURL }}/{{ tag.url }}">
-                    {{ tag | lower }}
-                </a>
+                            <a href="{{ SITEURL }}/{{ tag.url }}">
+                                {{ tag | lower }}
+                            </a>
 
-                {% if not loop.last %}
-                ,
-                {% endif %}
+                            {% if not loop.last %}
+                                         ,
+                            {% endif %}
 
-                {% endfor %}
+                        {% endfor %}
 
-                {% endif %}
-            </p>
+                    {% endif %}
+                </p>
+
+
+            </div>
+
+            <div class="spread right">
+                <p>{{ TUNDRA_POSTED }}: {{ article.locale_date }}</p>
+                <p>{{ TUNDRA_MODIFIED }}: {{ article.locale_modified }}</p>
+            </div>
+
         </div>
-        <div class="dates">
-            <p>{{ TUNDRA_POSTED }}: {{ article.locale_date}}</p>
-            <p>{{ TUNDRA_MODIFIED }}: {{ article.locale_modified }}</p>
-        </div>
-    </div>
 
-    <div>
         {{ article.content }}
 
         {% if article.photo_gallery %}
-        {% for title, gallery in article.photo_gallery %}
+            {% for title, gallery in article.photo_gallery %}
 
-        <h3>{{ TUNDRA_GALLERY }}: {{ title }}</h3>
-        <div class="gallery">
-            {% for name, photo, thumb, exif, caption in gallery %}
-            <figure>
-                <a href="{{ SITEURL }}/{{ photo }}">
-                    <img src="{{ SITEURL}}/{{ thumb }}">
-                </a>
-                <figcaption>
-                    <a href="{{ SITEURL }}/{{ photo }}">
-                        <em>{{ name }}</em>
-                    </a>
-                    {% if caption %}
-                    : {{ caption }}
-                    {% endif %}
-                </figcaption>
-            </figure>
+                <h3>{{ TUNDRA_GALLERY }}: {{ title }}</h3>
+                <div class="gallery">
+                    {% for name, photo, thumb, exif, caption in gallery %}
+                        <figure>
+                            <a href="{{ SITEURL }}/{{ photo }}">
+                                <img src="{{ SITEURL }}/{{ thumb }}">
+                            </a>
+                            <figcaption>
+                                <a href="{{ SITEURL }}/{{ photo }}">
+                                    <em>{{ name }}</em>
+                                </a>
+                                {% if caption %}
+                                    : {{ caption }}
+                                {% endif %}
+                            </figcaption>
+                        </figure>
+                    {% endfor %}
+                </div>
             {% endfor %}
-        </div>
-        {% endfor %}
-        {% endif %}
-    </div>
-
-
-    {% if article.prev_article or article.next_article %}
-    <div class="neighbors">
-        {% if article.prev_article %}
-        <div class="neighbors_prev">
-            &lt; {{ TUNDRA_PREVIOUS }}
-
-            <a href="{{ SITEURL }}/{{ article.prev_article.url }}">
-                {{ article.prev_article.title }}
-            </a>
-        </div>
         {% endif %}
 
-        {% if article.next_article %}
-        <div class="neighbors_next">
-            {{ TUNDRA_NEXT }}
 
-            <a href="{{ SITEURL }}/{{ article.next_article.url }}">
-                {{ article.next_article.title }}
-            </a>&gt;
-        </div>
+        {% if article.prev_article or article.next_article %}
+            <div class="meta">
+
+                {% if article.prev_article %}
+                    <div class="spread">
+                        <p>
+                            &lt;
+                            {{ TUNDRA_PREVIOUS }}
+                            <a href="{{ SITEURL }}/{{ article.prev_article.url }}">
+                                {{ article.prev_article.title }}
+                            </a>
+                        </p>
+                    </div>
+                {% endif %}
+
+                {% if article.next_article %}
+                    <div class="spread right">
+                        <p>
+                            {{ TUNDRA_NEXT }}
+                            <a href="{{ SITEURL }}/{{ article.next_article.url }}">
+                                {{ article.next_article.title }}
+                            </a>
+                            &gt;
+                        </p>
+                    </div>
+                {% endif %}
+
+            </div>
         {% endif %}
-    </div>
-    {% endif %}
 
-    {% if article.similar_posts %}
-    <div class="similar">
-        {{ TUNDRA_SIMILAR_ARTICLES }}:
-        <ul>
-            {% for similar in article.similar_posts %}
-            <li>
-                <a href="{{ SITEURL }}/{{ similar.url }}">
-                    {{ similar.title }}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
-</article>
+
+        {% if article.similar_posts %}
+            <div class="meta">
+
+                <p>
+                    {{ TUNDRA_SIMILAR_ARTICLES }}:
+                </p>
+                <ul>
+                    {% for similar in article.similar_posts %}
+                        <li>
+                            <a href="{{ SITEURL }}/{{ similar.url }}">
+                                {{ similar.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        {% endif %}
+    </article>
 {% endblock %}

@@ -1,24 +1,24 @@
 {% extends "base.html" %}
 
 {% block title %}
-{{ TUNDRA_TAGS }}
+    {{ TUNDRA_TAGS }}
 {% endblock %}
 
 {% block content %}
-<article>
+    <article>
         <h1>{{ TUNDRA_TAGS }}</h1>
         <ul>
-                {%- for tag, articles in tags|sort %}
+            {%- for tag, articles in tags|sort %}
                 <li>
-                        <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag | lower}}</a>
-                        <span>[{{ articles|count }} {{ TUNDRA_ARTICLES }}]</span>
+                    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag | lower }}</a>
+                    <span>[{{ articles|count }} {{ TUNDRA_ARTICLES }}]</span>
 
-                        {% if tag.page %}
+                    {% if tag.page %}
                         <p>{{ tag.page.content }}</p>
-                        {% endif %}
+                    {% endif %}
 
                 </li>
-                {% endfor %}
+            {% endfor %}
         </ul>
-</article>
+    </article>
 {% endblock %}
