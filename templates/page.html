@@ -22,9 +22,7 @@
         {% for title, gallery in page.photo_gallery %}
         {% for name, photo, thumb, exif, caption in
         gallery %}
-        <a href="{{ SITEURL }}/{{ photo }}"
-           title="{{ name }}"
-           caption="{{ caption }}">
+        <a href="{{ caption }}">
             <img src="{{ SITEURL }}/{{ thumb }}">
         </a>
         {% endfor %}
