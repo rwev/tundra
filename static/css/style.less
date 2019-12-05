@@ -60,7 +60,7 @@ h4,
 h5 {
   font-weight: normal;
   text-align: left;
-  font-family: Bahnschrift;
+  font-family: Bahnschrift, sans-serif;
 
   span {
     color: inherit;
@@ -173,6 +173,12 @@ main {
       padding: 0.175rem;
       font-size: 0.85rem;
     }
+
+    div.gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 1.5rem;
+    }
   }
 
   footer {
@@ -246,11 +252,5 @@ table {
 
     margin: 2rem;
 
-  }
-
-  div.gallery {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 1.5rem;
   }
 }

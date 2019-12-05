@@ -35,7 +35,7 @@ h4,
 h5 {
   font-weight: normal;
   text-align: left;
-  font-family: Bahnschrift;
+  font-family: Bahnschrift, sans-serif;
 }
 h1 span,
 h2 span,
@@ -136,6 +136,11 @@ main article code.inline {
   padding: 0.175rem;
   font-size: 0.85rem;
 }
+main article div.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1.5rem;
+}
 main footer div.paginations {
   display: inline-block;
   width: 100%;
@@ -187,10 +192,5 @@ table th {
     width: 25%;
     height: 100%;
     margin: 2rem;
-  }
-  div.gallery {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 1.5rem;
   }
 }
