@@ -1,61 +1,58 @@
 {% extends "index.html" %}
 
 {% block title %}
-    {{ TUNDRA_CATEGORY }}: {{ category | lower }}
+{{ TUNDRA_CATEGORY }}: {{ category | lower }}
 {% endblock %}
-
 
 {% block head %}
 
-    {% if CATEGORY_FEED_ATOM %}
-        <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|replace("{slug}", category.slug) }}"
-              type="application/atom+xml"
-              rel="alternate"
-              title="{{ SITENAME }} {{ category }} Category Atom"/>
-    {% endif %}
+{% if CATEGORY_FEED_ATOM %}
+<link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|replace("
+      {slug}", category.slug) }}" type="application/atom+xml"
+rel="alternate" title="{{ SITENAME }} {{ category }} Category Atom"/>
+{% endif %}
 
-    {% if CATEGORY_FEED_RSS %}
-        <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|replace("{slug}", category.slug) }}"
-              type="application/rss+xml"
-              rel="alternate"
-              title="{{ SITENAME }} {{ category }} Category RSS"/>
-    {% endif %}
+{% if CATEGORY_FEED_RSS %}
+<link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|replace("
+      {slug}", category.slug) }}" type="application/rss+xml"
+rel="alternate" title="{{ SITENAME }} {{ category }} Category RSS"/>
+{% endif %}
 
 {% endblock %}
 
 {% block header %}
 
-    {{ TUNDRA_SEPARATION_STR }} {{ TUNDRA_CATEGORY }}:
+<h1>{{ TUNDRA_CATEGORY }}&nbsp;:
 
     {% if category.ancestors %}
-        {% for ancestor_category in category.ancestors[:-1] %}
-            <a href="{{ SITEURL }}/{{ ancestor_category.url }}">
-                {{ ancestor_category.shortname | lower }}
-            </a>
-            &gt;
-        {% endfor %}
+    {% for ancestor_category in category.ancestors[:-1] %}
+    <a href="{{ SITEURL }}/{{ ancestor_category.url }}">
+        {{ ancestor_category.shortname | lower }}
+    </a>
+    &gt;
+    {% endfor %}
     {% endif %}
+    {{ category.shortname}}
 
-    <span>{{ category.shortname | lower }}</span>
+    {% if DISPLAY_SUB_FEEDS %}
 
     {% if CATEGORY_FEED_ATOM %}
-        {{ TUNDRA_SEPARATION_STR }}
-        <a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|replace("{slug}", category.slug) }}">
-            {{ TUNDRA_ATOM }}
-        </a>
+    <a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|replace("{slug}", category.slug) }}">
+    [{{ TUNDRA_ATOM }}]
+    </a>
     {% endif %}
 
     {% if CATEGORY_FEED_RSS %}
-        {{ TUNDRA_SEPARATION_STR }}
-        <a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|replace("{slug}", category.slug) }}">
-            {{ TUNDRA_RSS }}
-        </a>
+    <a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|replace("{slug}", category.slug) }}">
+    [{{ TUNDRA_RSS }}]
+    </a>
     {% endif %}
 
-    <h1>{{ TUNDRA_CATEGORY }}: {{ category.shortname }} </h1>
-
-    {% if category.page %}
-        {{ category.page.content }}
     {% endif %}
+</h1>
+
+{% if category.page %}
+{{ category.page.content }}
+{% endif %}
 
 {% endblock %}

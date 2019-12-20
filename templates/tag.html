@@ -1,51 +1,46 @@
 {% extends "index.html" %}
 
 {% block title %}
-    {{ TUNDRA_TAG }}: {{ tag }}
+{{ TUNDRA_TAG }}: {{ tag | lower }}
 {% endblock %}
 
 {% block head %}
 
-    {% if TAG_FEED_ATOM %}
-        <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|replace("{slug}", tag.slug) }}"
-              type="application/atom+xml"
-              rel="alternate"
-              title="{{ SITENAME }} {{ tag }} Tag Atom"/>
-    {% endif %}
+{% if TAG_FEED_ATOM %}
+<link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|replace("{slug}", tag.slug) }}" type="application/atom+xml"
+rel="alternate" title="{{ SITENAME }} {{ tag }} Tag Atom"/>
+{% endif %}
 
-    {% if TAG_FEED_RSS %}
-        <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|replace("{slug}", tag.slug) }}"
-              type="application/rss+xml"
-              rel="alternate"
-              title="{{ SITENAME }} {{ tag }} Tag RSS"/>
-    {% endif %}
+{% if TAG_FEED_RSS %}
+<link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|replace("{slug}", tag.slug) }}" type="application/rss+xml" rel="alternate"
+title="{{ SITENAME }} {{ tag }} Tag RSS"/>
+{% endif %}
 
 {% endblock %}
 
 {% block header %}
 
-    &gt; {{ TUNDRA_TAG }}: {{ tag }}
+<h1>{{ TUNDRA_TAG }}&nbsp;: {{ tag | lower }}
+
+    {% if DISPLAY_SUB_FEEDS %}
 
     {% if TAG_FEED_ATOM %}
-
-        {{ TUNDRA_SEPARATION_STR }}
-        <a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|replace("{slug}", tag.slug) }}">
-            {{ TUNDRA_ATOM }}
-        </a>
+    <a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|replace("{slug}", tag.slug) }}">
+    [{{ TUNDRA_ATOM }}]
+    </a>
     {% endif %}
 
     {% if TAG_FEED_RSS %}
-        {{ TUNDRA_SEPARATION_STR }}
-        <a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|replace("{slug}", tag.slug) }}">
-            {{ TUNDRA_RSS }}
-        </a>
+    <a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|replace("{slug}", tag.slug) }}">
+    [{{ TUNDRA_RSS }}]
+    </a>
     {% endif %}
 
-    <h1>{{ TUNDRA_TAG }}: {{ tag | lower }}</h1>
-
-    {% if tag.page %}
-        {{ tag.page.content }}
     {% endif %}
+</h1>
 
+{% if tag.page %}
+{{ tag.page.content }}
+{% endif %}
 
 {% endblock %}

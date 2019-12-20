@@ -126,5 +126,7 @@ TAG_FEED_RSS = "feeds/tag.{slug}.rss.xml"
 CATEGORY_FEED_ATOM = "feeds/category.{slug}.atom.xml"
 CATEGORY_FEED_RSS = "feeds/category.{slug}.rss.xml"
 
+DISPLAY_SUB_FEEDS = False # whether to display author, tag, and category feeds
+
 FEED_ALL_ATOM = "feeds/all.atom.xml"
 FEED_ALL_RSS =  "feeds/all.rss.xml"
