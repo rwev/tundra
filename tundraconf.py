@@ -52,9 +52,7 @@ PHOTO_LIBRARY = ""
 
 # 1.33~ width / height ratio
 # (width, height, quality % of max)
-PHOTO_GALLERY = (2000, 1500, 95)
-PHOTO_ARTICLE = (760, 506, 95)
-PHOTO_THUMB = (300, 225, 70)
+PHOTO_THUMB = (500, 500, 50) # bumper
 
 PHOTO_SQUARE_THUMB = True
 PHOTO_RESIZE_JOBS = 5
@@ -76,6 +74,11 @@ TUNDRA_SEPARATION_STR = " // "
 TUNDRA_SOCIAL = "social"
 
 TUNDRA_HOME = "home"
+
+TUNDRA_BLOG = "blog"
+TUNDRA_PAGES = "pages"
+TUNDRA_LINKS = "links"
+
 TUNDRA_ARCHIVES = "archives"
 TUNDRA_SIMILAR_ARTICLES = "similar articles"
 
