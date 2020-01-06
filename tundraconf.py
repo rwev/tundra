@@ -12,10 +12,8 @@ SITEURL = "localhost:8000"
 USER_LOGO_URL = ""
 TAGLINE = ""
 
-DISPLAY_LINKS_ON_MENU = True
 DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
-DISPLAY_SOCIAL_ON_MENU = False
 
 LINK_ITEMS = (
     # ("<TEXT>", "<URL>"),
@@ -36,8 +34,7 @@ PLUGINS = [
     "neighbors",
     "more_categories",
     "photos",
-    "summary",
-    "clean_summary",
+    "summary"
 ]
 
 # autopages
@@ -53,36 +50,34 @@ SIMILAR_POSTS_MAX_COUNT = 3
 # photos
 PHOTO_LIBRARY = ""
 
-PHOTO_THUMB = (550, 550, 75)
-PHOTO_SQUARE_THUMB = False
+# 1.33~ width / height ratio
+# (width, height, quality % of max)
+PHOTO_GALLERY = (2000, 1500, 95)
+PHOTO_ARTICLE = (760, 506, 95)
+PHOTO_THUMB = (300, 225, 70)
 
+PHOTO_SQUARE_THUMB = True
+PHOTO_RESIZE_JOBS = 5
 PHOTO_WATERMARK = False
 
 PHOTO_EXIF_KEEP = False
 PHOTO_EXIF_REMOVE_GPS = True
+
 PHOTO_EXIF_COPYRIGHT = "CC-BY-NC-ND"
 PHOTO_EXIF_COPYRIGHT_AUTHOR = ""
 
 # summary
-SUMMARY_MAX_LENGTH = 1000  # use whole summary
 SUMMARY_USE_FIRST_PARAGRAPH = True
-
-CLEAR_SUMMARY_MAXIMUM = 0
-CLEAN_SUMMARY_MINIMUM_ONE = False
 
 # CONFIGURATIONS FOR TUNDRA STATIC APPEARANCE (NOT USED BY PELICAN)
 
 TUNDRA_SEPARATION_STR = " // "
 
-TUNDRA_BLOG = "blog"
-TUNDRA_LINKS = "links"
 TUNDRA_SOCIAL = "social"
 
 TUNDRA_HOME = "home"
 TUNDRA_ARCHIVES = "archives"
 TUNDRA_SIMILAR_ARTICLES = "similar articles"
-
-TUNDRA_PAGES = "pages"
 
 TUNDRA_AUTHOR = "author"
 TUNDRA_AUTHORS = "authors"
