@@ -50,10 +50,6 @@ SIMILAR_POSTS_MAX_COUNT = 3
 # photos
 PHOTO_LIBRARY = ""
 
-# 1.33~ width / height ratio
-# (width, height, quality % of max)
-PHOTO_THUMB = (500, 500, 50) # bumper
-
 PHOTO_SQUARE_THUMB = True
 PHOTO_RESIZE_JOBS = 5
 PHOTO_WATERMARK = False
