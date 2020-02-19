@@ -68,6 +68,11 @@ h1 {
   color: #3b4252;
   font-size: 1.75rem;
 }
+h1.sitename {
+  color: #8fbcbb;
+  font-size: 3rem;
+  margin: 0;
+}
 h2 {
   color: #434c5e;
   font-size: 1.50rem;

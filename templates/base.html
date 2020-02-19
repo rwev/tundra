@@ -93,18 +93,21 @@
     </div>
 </main>
 <aside>
-    <a href="{{ SITEURL }}">
-        <img src="{{ SITE_URL }}/{{ USER_LOGO_URL }}"
-             alt="logo">
-    </a>
+    
+    {% if USER_LOGO_URL %}    
+        <a href="{{ SITEURL }}">
+                <img src="{{ SITE_URL }}/{{ USER_LOGO_URL }}"
+                        alt="logo">
+        </a>
+    {% endif %}
 
-    <h2>
+    <h1 class="sitename">
         <a href="{{ SITEURL }}">
             {{ SITENAME }}
         </a>
-    </h2>
+    </h1>
 
-    <p>{{ TAGLINE }}</p>
+    <h4 class="tagline">{{ TAGLINE }}</h4>
 
     {% if DISPLAY_PAGES_ON_MENU %}
         <h3>{{ TUNDRA_PAGES }}</h3>
