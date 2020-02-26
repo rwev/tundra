@@ -173,6 +173,9 @@ table td {
 table th {
   color: #4c566a;
 }
+pre.asciinema-terminal {
+  font-family: FiraCode, monospace;
+}
 @media screen and (min-width:1250px) {
   main {
     position: absolute;
