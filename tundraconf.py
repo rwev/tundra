@@ -9,6 +9,8 @@ AUTHOR = ""
 SITENAME = ""
 SITEURL = "localhost:8000"
 
+SOURCE_CODE_URL = ""
+
 USER_LOGO_URL = ""
 TAGLINE = ""
 
@@ -16,7 +18,7 @@ DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
 
 LINK_ITEMS = (
-    # ("<TEXT>", "<URL>"),
+    # ("<LABEL>", "<LINK_TEXT>", "<URL>"),
 )
 SOCIAL = ()
 

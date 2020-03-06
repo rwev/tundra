@@ -89,12 +89,15 @@
         <p>&copy; {{ OWNER }}. built using <a href="https://python.org">python</a> and <a href="https://getpelican.com"
                                                                                           target="_blank">pelican</a>.
            theme inspired by <a href="https://nordtheme.com"
-                                target="_blank">nord</a>.</p>
+                                target="_blank">nord</a>.
+            source code <a href="{{ SOURCE_CODE_URL }}"
+                           target="_blank">here</a>.
+        </p>
     </div>
 </main>
 <aside>
-    
-    {% if USER_LOGO_URL %}    
+
+    {% if USER_LOGO_URL %}
         <a href="{{ SITEURL }}">
                 <img src="{{ SITE_URL }}/{{ USER_LOGO_URL }}"
                         alt="logo">
@@ -138,8 +141,9 @@
     {% if DISPLAY_LINKS_ON_MENU %}
         <h3>{{ TUNDRA_LINKS }}</h3>
         <ul>
-            {% for name, link in LINK_ITEMS %}
+            {% for label, name, link in LINK_ITEMS %}
                 <li>
+                    {{ label }}
                     <a href="{{ link }}"
                        target="_blank">
                         {{ name }}
