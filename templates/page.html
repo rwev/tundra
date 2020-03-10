@@ -17,18 +17,5 @@
 
     {{ page.content }}
 
-    {% if page.photo_gallery %}
-    <div class="gallery">
-        {% for title, gallery in page.photo_gallery %}
-        {% for name, photo, thumb, exif, caption in
-        gallery %}
-        <a href="{{ caption }}">
-            <img src="{{ SITEURL }}/{{ thumb }}">
-        </a>
-        {% endfor %}
-        {% endfor %}
-    </div>
-    {% endif %}
-
 </article>
 {% endblock %}
