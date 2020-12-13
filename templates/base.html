@@ -182,9 +182,10 @@
     {% endif %}
 </aside>
 
+{% if GOATCOUNTER_URL %}
 <script>
     (function() {
-        window.counter = 'https://rwev.goatcounter.com/count'
+        window.counter = GOATCOUNTER_URL
 
         var script = document.createElement('script');
         script.async = 1;
@@ -194,6 +195,7 @@
         ins.parentNode.insertBefore(script, ins)
     })();
 </script>
+{% endif %}
 
 </body>
 </html>
